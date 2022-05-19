@@ -7,8 +7,8 @@ def safe_column_name(name: str, quotes: bool = False) -> str:
     pattern = '[^a-zA-Z0-9_]'
     name = re.sub(pattern, '_', name)
     if quotes:
-        return '`{}`'.format(name)
-    return '{}'.format(name)
+        return '`{}`'.format(name).lower()
+    return '{}'.format(name).lower()
 
 def safe_table_ref(table_ref: bigquery.TableReference) -> str:
     project_name = table_ref.project
